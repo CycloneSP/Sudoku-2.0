@@ -1,0 +1,51 @@
+#game {
+
+}
+
+#sudoku {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #EDD2A3;
+}
+
+.board {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(9, 5em);
+    grid-template-rows: repeat(9, 5em);
+    gap: .3em;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    background-color: #F5F3EB;
+    /* border: 1px solid #000; */
+}
+
+.cell:nth-child(n) {
+    box-shadow: 2px 2px 2px #6F7D8A;
+}
+
+.cell:nth-child(3n) {
+    box-shadow: 3px 2px 2px #6F7D8A;
+  }
+
+.cell:nth-child(n+19):nth-child(-n+27),
+.cell:nth-child(n+46):nth-child(-n+54),
+.cell:nth-child(n+73) {
+    box-shadow: 2px 3px 2px #6F7D8A;
+  }
+
+  .cell:nth-child(3n+21):nth-child(-n+27),
+  .cell:nth-child(3n+48):nth-child(-n+54),
+  .cell:nth-child(3n + 75) {
+    box-shadow: 3px 3px 2px #6F7D8A;
+  }
