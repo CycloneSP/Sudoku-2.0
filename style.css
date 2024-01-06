@@ -11,19 +11,19 @@
     background-color: #EDD2A3;
 }
 
-.board {
+#board {
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(9, 5em);
-    grid-template-rows: repeat(9, 5em);
-    gap: .3em;
+    grid-template-columns: repeat(9, 75px);
+    grid-template-rows: repeat(9, 75px);
+    gap: 6px;
 }
 
 .cell {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2em;
+    font-size: 24px;
     font-weight: bold;
     color: #333;
     background-color: #F5F3EB;
