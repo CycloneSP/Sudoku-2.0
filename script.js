@@ -23,6 +23,13 @@ const timer = {
     seconds: 0,
     minutes: 0,
     timerInterval: null,
+    sudokuElement: document.getElementById('sudoku'),
+
+    createTimer() {
+        const timerElement = document.createElement('div');
+        timerElement.id = 'timer';
+        this.sudokuElement.appendChild(timerElement);
+    },
 
     startTimer() {
         this.timerInterval = setInterval(() => this.updateTimer(), 1000);
@@ -31,14 +38,21 @@ const timer = {
     updateTimer() {
         this.seconds++;
 
-        if (this.seconds === 60) {
-            this.seconds = 0;
+        if (this.seconds >= 60) {
+            this.seconds -= 60;
             this.minutes++;
         }
 
         const formattedTime = `${this.minutes.toString().padStart(2, '0')}:${this.seconds.toString().padStart(2, '0')}`;
+
+        const timerElement = document.getElementById('timer');
+
+        timerElement.innerText = formattedTime;
         
-        document.getElementById('timer').textContent = formattedTime;
+    },
+
+    addPenalty() {
+        this.seconds += 30;
     },
 
     stopTimer() {
@@ -49,9 +63,11 @@ const timer = {
         this.stopTimer();
         this.seconds = 0;
         this.minutes = 0;
-        document.getElementById('timer').textContent = '00:00';
+        document.getElementsByClassName('timer').innerHTML = '00:00';
     }
 
 }
 
 sudokuGame.createBoard();
+timer.createTimer();
+timer.startTimer();

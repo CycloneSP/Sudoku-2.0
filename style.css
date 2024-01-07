@@ -3,49 +3,65 @@
 }
 
 #sudoku {
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #EDD2A3;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #EDD2A3;
 }
 
 #board {
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(9, 75px);
-    grid-template-rows: repeat(9, 75px);
-    gap: 6px;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(9, 70px);
+  grid-template-rows: repeat(9, 70px);
+  gap: 6px;
+}
+
+#timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F5F3EB;
+  font-size: 56px;
+  font-family: Noto Sans, sans-serif;
+  color: #333333;
+  width: 225px;
+  height: 100px;
+  box-shadow: 3px 3px 2px #6f7d8a;
 }
 
 .cell {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    background-color: #F5F3EB;
-    /* border: 1px solid #000; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-family: Noto Sans, sans-serif;
+  font-weight: 600;
+  color: #333333;
+  background-color: #F5F3EB;
 }
 
 .cell:nth-child(n) {
-    box-shadow: 2px 2px 2px #6F7D8A;
+  box-shadow: 2px 2px 2px #6F7D8A;
 }
 
 .cell:nth-child(3n) {
-    box-shadow: 3px 2px 2px #6F7D8A;
-  }
+  box-shadow: 3px 2px 2px #6F7D8A;
+}
 
 .cell:nth-child(n+19):nth-child(-n+27),
 .cell:nth-child(n+46):nth-child(-n+54),
 .cell:nth-child(n+73) {
-    box-shadow: 2px 3px 2px #6F7D8A;
-  }
+  box-shadow: 2px 3px 2px #6F7D8A;
+}
 
-  .cell:nth-child(3n+21):nth-child(-n+27),
-  .cell:nth-child(3n+48):nth-child(-n+54),
-  .cell:nth-child(3n + 75) {
-    box-shadow: 3px 3px 2px #6F7D8A;
-  }
+.cell:nth-child(3n+21):nth-child(-n+27),
+.cell:nth-child(3n+48):nth-child(-n+54),
+.cell:nth-child(3n + 75) {
+  box-shadow: 3px 3px 2px #6F7D8A;
+}
