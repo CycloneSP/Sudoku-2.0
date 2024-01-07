@@ -35,15 +35,21 @@
   box-shadow: 3px 3px 2px #6f7d8a;
 }
 
+
 .cell {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 48px;
   font-family: Noto Sans, sans-serif;
   font-weight: 600;
   color: #333333;
   background-color: #F5F3EB;
+}
+
+.selected {
+  background-color: #ffd700;
+  opacity: .7;
 }
 
 .cell:nth-child(n) {
