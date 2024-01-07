@@ -5,6 +5,11 @@ const sudokuGame = {
     cellCount: 81,
     boardElement: document.getElementById('board'),
     selectedCell: null,
+    hiddenCell: null,
+    matrix: [],
+    rows: [],
+    columns: [],
+    squares: [],
 
     createBoard() {
 
@@ -13,21 +18,43 @@ const sudokuGame = {
             cell.classList.add('cell');
             this.boardElement.appendChild(cell);
 
-            cell.addEventListener('click', () => {
+            cell.addEventListener('click', event => this.handleClick(event, cell)); {
 
-                document.querySelectorAll('.cell').forEach((cell) => {
-
-                    cell.classList.remove('selected');
-
-                });
-
-                cell.classList.add('selected');
-                this.selectedCell = cell;
-            })
-        
+            }
+            
         }
+        document.addEventListener('keydown', this.handleKeyDown);
+        
+    },
+    
+    handleClick(event, clickedCell) {
 
-    }
+        document.querySelectorAll('.cell').forEach((clickedCell) => {
+    
+            clickedCell.classList.remove('selected');
+    
+        });
+    
+        clickedCell.classList.add('selected');
+        this.selectedCell = clickedCell;
+        
+    },
+
+    handleKeyDown(event) {
+        if (!event.repeat && sudokuGame.selectedCell && !sudokuGame.hiddenCell) {
+
+            const isNumberKey = event.key >= '1' && event.key <= '9';
+    
+            if (isNumberKey) {
+                sudokuGame.selectedCell.innerText = event.key;
+            } else if (event.key === 'Backspace') {
+                sudokuGame.selectedCell.innerText = '';
+            }
+        }
+    },
+
+    initializeGame() {
+    },
     
 
 };
@@ -83,18 +110,18 @@ const timer = {
 
 sudokuGame.createBoard();
 
-document.addEventListener('keydown', function(event) {
-    if (!event.repeat && sudokuGame.selectedCell) {
+// document.addEventListener('keydown', function(event) {
+//     if (!event.repeat && sudokuGame.selectedCell) {
 
-        const isNumberKey = event.key >= '1' && event.key <= '9';
+//         const isNumberKey = event.key >= '1' && event.key <= '9';
 
-        if (isNumberKey) {
-            sudokuGame.selectedCell.innerText = event.key;
-        } else if (event.key === 'Backspace') {
-            sudokuGame.selectedCell.innerText = '';
-        }
-    }
-});
+//         if (isNumberKey) {
+//             sudokuGame.selectedCell.innerText = event.key;
+//         } else if (event.key === 'Backspace') {
+//             sudokuGame.selectedCell.innerText = '';
+//         }
+//     }
+// });
 
 
 
